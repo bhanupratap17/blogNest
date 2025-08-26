@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <title>homepage</title>
+  </head>
+  <body style="font-family: 'Open Sans', sans-serif;">
+    <%- include('./partials/nav.ejs') %>
+   <div class="container mt-2">
+  <div class="row">
+    <% blogs.forEach(blog => { %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img
+            src="<%= blog.coverImageURL %>"
+            class="card-img-top"
+            alt="Cover Image"
+            style="height: 200px; object-fit: cover;"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= blog.title %></h5>
+
+            <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+    
+    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/scripts.ejs') %>
+  </body>
+</html>
